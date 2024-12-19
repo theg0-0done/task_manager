@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block title %}Work Tasks{% endblock %}
+{% block page_title %}Work Tasks{% endblock %}
+
+{% block script %}
+    <script>
+    // Function to add a new row to the table
+        function addRow() {
+            const table = document.getElementById("myTable").getElementsByTagName("tbody")[0];
+            const newRow = table.insertRow();
+
+        // Insert a checkbox for the "Done" column as the first column
+            const doneCell = newRow.insertCell(0);
+            const doneCheckbox = document.createElement("input");
+            doneCheckbox.type = "checkbox"; // Create checkbox for "Done"
+            doneCell.appendChild(doneCheckbox);
+
+        // Insert cells and create inputs for other columns (Name, Type, Deadline, Description)
+            for (let i = 0; i < 4; i++) {
+                const newCell = newRow.insertCell(i + 1);
+                let input;
+
+                if (i === 1) {
+                // Dropdown for "Type"
+                    input = document.createElement("select");
+                    input.className = "form-select";
+                    const option1 = document.createElement("option");
+                    option1.text = "Important";
+                    option1.value = "Important";
+                    const option2 = document.createElement("option");
+                    option2.text = "Optional";
+                    option2.value = "Optional";
+                    input.add(option1);
+                    input.add(option2);
+                } else if (i === 2) {
+                // Date input for "Deadline"
+                    input = document.createElement("input");
+                    input.type = "date";
+                    input.className = "form-control";
+                } else {
+                // Text input for "Name" and "Description"
+                    input = document.createElement("input");
+                    input.type = "text";
+                    input.className = "form-control";
+                }
+
+                newCell.appendChild(input);
+            }
+
+        // Change the "+" button to "✔" and update its functionality to save the row
+            const addButton = document.querySelector(".btn-circle");
+            addButton.textContent = "✔";
+            addButton.classList.add("save-mode");
+            addButton.setAttribute("onclick", "saveRow()"); // Switch to saveRow function
+        }
+
+    // Function to save the new task (row) data
+        function saveRow() {
+            const table = document.getElementById("myTable").getElementsByTagName("tbody")[0];
+            const lastRow = table.rows[table.rows.length - 1]; // Get the last row added
+            const cells = lastRow.getElementsByTagName("td");
+
+        // Prepare task data
+            const taskData = {
+                done: cells[0].querySelector("input").checked, // Get the checkbox value
+                task_name: cells[1].querySelector("input").value,
+                task_type: cells[2].querySelector("select").value,
+                deadline: cells[3].querySelector("input").value,
+                description: cells[4].querySelector("input").value
+            };
+
+        // Validate inputs before sending
+            if (!taskData.task_name || !taskData.deadline || !taskData.description) {
+                alert("All fields are required!");
+                return;
+            }
+
+        // Send data to Flask using AJAX (POST request)
+            fetch('/work', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(taskData), // Send task data as JSON
+            })
+                .then(response => response.json()) // Assuming the response from Flask is JSON
+                .then(data => {
+                    console.log(data); // Handle the response if necessary
+                    location.reload(); // Reload the page to show the newly saved task
+                })
+                .catch(error => console.error('Error saving task:', error));
+
+        // After saving, revert the button to its original state
+            const addButton = document.querySelector(".btn-circle");
+            addButton.textContent = "+"; // Revert the button back to "+"
+            addButton.classList.remove("save-mode");
+            addButton.setAttribute("onclick", "addRow()"); // Set the onclick back to adding rows
+        };
+    </script>
+{% endblock %}

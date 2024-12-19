@@ -1,0 +1,319 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    padding-bottom: 200px;
+}
+
+header {
+    background-color: #00171f;
+    color: white;
+    padding: 20px;
+    position: fixed; /* Fixes the footer to the bottom of the screen */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.input-group {
+    position: absolute;
+    top: 15px;
+    left: 999px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.fa-search {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.search-btn {
+    background-color: #7091e6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;  /* Arrange form elements vertically */
+    align-items: center;     /* Center the form elements horizontally */
+    justify-content: center; /* Center the form elements vertically */
+    width: 500px;            /* Set the width of the form */
+    margin: 60px auto;      /* Center the form with some top margin */
+    padding: 40px;           /* Add some padding inside the form */
+    background-color: #d0d7e1;  /* White background for the form */
+    border-radius: 30px;      /* Round the corners of the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    position: absolute;
+    top: 120px;
+    left: 400px;
+}
+
+.text {
+    text-align: center;
+    position: relative;
+    top: 150px;
+    text-decoration: underline;
+}
+
+input {
+    width: 100%;             /* Make the input fields full width */
+    padding: 10px;           /* Add padding inside the input fields */
+    margin-bottom: 10px;     /* Add space between input fields */
+    border: 1px solid #ccc;  /* Light grey border */
+    border-radius: 20px;      /* Rounded corners for input fields */
+    font-size: 16px;         /* Font size for the input text */
+    box-sizing: border-box;  /* Include padding and border in the element's total width and height */
+}
+
+button {
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.top_icons {
+    position: absolute;
+    top: 50px;
+    font-size: 20px;
+    color: #ede8f5;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.top_icons:nth-child(1) {
+    right: 80px;
+}
+
+.top_icons:nth-child(2) {
+    right: 5px; /* Adjust space between links */
+}
+
+.top_icons:nth-child(3) {
+    right: 180px; /* Adjust space between links */
+}
+
+footer {
+    background-color: #00171f;
+    color: white;
+    text-align: center;
+    padding: 0.00001px;
+    position: fixed; /* Fixes the footer to the bottom of the screen */
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+
+a {
+    text-decoration: none; /* Remove the underline from the link */
+}
+
+.rectangle {
+    display: inline-block;
+    padding: 20px;
+    background-color: #adebff;
+    color: black;
+    text-align: center;
+    border-radius: 25px;
+    width: 200px;
+    height: 300px;
+    position: relative;
+    top: 170px;
+    left: 200px;
+    margin-right: 40px;
+    font-size: 25px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width/height */
+    transition: transform 0.3s ease; /* Smooth transition when hovering */
+}
+
+/* Hover effect: Moves the rectangle 10px up */
+.rectangle:hover {
+    transform: translateY(-15px); /* Moves the rectangle 10px up */
+}
+
+.rectangle .title {
+    text-decoration: underline;
+    font-size: 30px; /* Title size */
+    font-weight: bold; /* Make the title bold */
+    margin-bottom: 20px; /* Space between title and body text */
+}
+
+.rectangle .body-text {
+    font-size: 15px; /* Body text size */
+    line-height: 1.5; /* Line spacing */
+}
+
+
+
+/* General Table Styling */
+.table {
+    width: 88%;
+    margin: 20px auto;
+    border-collapse: collapse; /* Removes space between borders */
+    position: relative;
+    top: 150px;
+    bottom: 100px;
+    right: 20px;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #3d52a0; /* Light border for separation */
+}
+
+/* Header Styling */
+.table thead {
+    background-color: #4CAF50; /* Green background for header */
+    color: white; /* White text for contrast */
+}
+
+.thead-light th {
+            background-color: #003459;
+            color: white;
+            text-align: center;
+        }
+
+.table thead th {
+    font-weight: bold;
+}
+
+/* Zebra Striping for Rows */
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light grey for even rows */
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+}
+
+/* Hover effect for rows */
+.table tbody tr:hover {
+    background-color: #f5f5f5; /* Slight grey when hovering over rows */
+}
+
+/* Footer Styling (Optional if you have a footer) */
+.table tfoot {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    text-align: right;
+    padding: 10px;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+    width: 150px; /* Adjust the width to fit the date */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.btn-circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    background-color: blue; /* Change this to your desired color */
+    color: white; /* Adjust text color for contrast */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    z-index: 1000;
+}
+button:hover {
+    background-color: #0097ff;  /* Color when hovering */
+}
+.btn-circle.save-mode {
+    background-color: green;
+    font-size: 45px;  /* Increase font size for the checkmark */
+}
+button:hover.save-mode {
+    background-color: #00ff1d;  /* Color when hovering */
+}
+
+/* Full-screen overlay with blur */
+.error-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);     display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Error box in the center */
+.error-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Error icon and message styling */
+.error-box h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: red;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 15px 0;
+}
+
+/* Button styling */
+.close-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: darkred;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Background content styling (for demo purposes) */
+.background-content {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.alert-success {
+    text-align: center;
+    position: relative;
+    top: -210px;
+}
