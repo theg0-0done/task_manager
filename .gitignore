@@ -1,0 +1,25 @@
+# Python bytecode files
+*.pyc
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+
+# SQLite database
+database.db
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Flask specific files (if any)
+instance/
